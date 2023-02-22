@@ -1,0 +1,131 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Superclass
+class Computer {
+private:
+    string brand;
+    int year;
+    float price;
+
+public:
+    // Public member functions to set and get the private member variables
+    void setBrand(string brand) {
+        this->brand = brand;
+    }
+
+    string getBrand() {
+        return brand;
+    }
+
+    void setYear(int year) {
+        this->year = year;
+    }
+
+    int getYear() {
+        return year;
+    }
+
+    void setPrice(float price) {
+        this->price = price;
+    }
+
+    float getPrice() {
+        return price;
+    }
+};
+
+// Subclass 1
+class Client : public Computer {
+private:
+    int clientId;
+    bool isLaptop;
+
+public:
+    // Public member functions to set and get the private member variables
+    void setClientId(int clientId) {
+        this->clientId = clientId;
+    }
+
+    int getClientId() {
+        return clientId;
+    }
+
+    void setIsLaptop(bool isLaptop) {
+        this->isLaptop = isLaptop;
+    }
+
+    bool getIsLaptop() {
+        return isLaptop;
+    }
+
+    // Virtual function to display the attributes of a client computer object
+    virtual void display() {
+        cout << "Client computer brand: " << getBrand() << endl;
+        cout << "Client computer year: " << getYear() << endl;
+        cout << "Client computer price: $" << getPrice() << endl;
+        cout << "Client ID: " << getClientId() << endl;
+        cout << "Is laptop: " << (getIsLaptop() ? "Yes" : "No") << endl;
+    }
+};
+
+// Subclass 2
+class Server : public Computer {
+private:
+    int serverId;
+    int numCores;
+
+public:
+    // Public member functions to set and get the private member variables
+    void setServerId(int serverId) {
+        this->serverId = serverId;
+    }
+
+    int getServerId() {
+        return serverId;
+    }
+
+    void setNumCores(int numCores) {
+        this->numCores = numCores;
+    }
+
+    int getNumCores() {
+        return numCores;
+    }
+
+    // Virtual function to display the attributes of a server computer object
+    virtual void display() {
+        cout << "Server computer brand: " << getBrand() << endl;
+        cout << "Server computer year: " << getYear() << endl;
+        cout << "Server computer price: $" << getPrice() << endl;
+        cout << "Server ID: " << getServerId() << endl;
+        cout << "Number of cores: " << getNumCores() << endl;
+    }
+};
+
+// Main function
+int main() {
+    // Create an object of Client class and set its attributes
+    Client myClient;
+    myClient.setBrand("Dell");
+    myClient.setYear(2020);
+    myClient.setPrice(800.00);
+    myClient.setClientId(12345);
+    myClient.setIsLaptop(true);
+
+    // Create an object of Server class and set its attributes
+    Server myServer;
+    myServer.setBrand("HP");
+    myServer.setYear(2021);
+    myServer.setPrice(1500.00);
+    myServer.setServerId(98765);
+    myServer.setNumCores(8);
+
+    // Call the display function of the Client and Server objects
+    myClient.display();
+    myServer.display();
+
+    return 0;
+}
