@@ -1,0 +1,124 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Base class
+class Student {
+    protected:
+        string name;
+        int age;
+        int idNumber;
+    public:
+        void setName(string name) {
+            this->name = name;
+        }
+        void setAge(int age) {
+            this->age = age;
+        }
+        void setIdNumber(int idNumber) {
+            this->idNumber = idNumber;
+        }
+};
+
+// Subclasses for courses
+class ICTStudent: public Student {
+    private:
+        string course;
+    public:
+        void setCourse(string course) {
+            this->course = course;
+        }
+        void display() {
+            cout << "Name: " << name << endl;
+            cout << "Age: " << age << endl;
+            cout << "ID Number: " << idNumber << endl;
+            cout << "Course: " << course << endl;
+        }
+};
+
+class LawStudent: public Student {
+    private:
+        string course;
+    public:
+        void setCourse(string course) {
+            this->course = course;
+        }
+        void display() {
+            cout << "Name: " << name << endl;
+            cout << "Age: " << age << endl;
+            cout << "ID Number: " << idNumber << endl;
+            cout << "Course: " << course << endl;
+        }
+};
+
+class BusinessStudent: public Student {
+    private:
+        string course;
+    public:
+        void setCourse(string course) {
+            this->course = course;
+        }
+        void display() {
+            cout << "Name: " << name << endl;
+            cout << "Age: " << age << endl;
+            cout << "ID Number: " << idNumber << endl;
+            cout << "Course: " << course << endl;
+        }
+};
+
+// Subclass for BSC-IT degree
+class BSCITStudent: public Student {
+    private:
+        string course;
+        string stage;
+    public:
+        void setCourse(string course) {
+            this->course = course;
+        }
+        void setStage(string stage) {
+            this->stage = stage;
+        }
+        void display() {
+            cout << "Name: " << name << endl;
+            cout << "Age: " << age << endl;
+            cout << "ID Number: " << idNumber << endl;
+            cout << "Course: " << course << endl;
+            cout << "Stage: " << stage << endl;
+        }
+};
+
+int main() {
+    // Create objects of each subclass and set their attributes
+    ICTStudent ictStudent;
+    ictStudent.setName("festus lumara");
+    ictStudent.setAge(20);
+    ictStudent.setIdNumber(12345);
+    ictStudent.setCourse("ICT");
+    ictStudent.display();
+
+    LawStudent lawStudent;
+    lawStudent.setName("Jay day");
+    lawStudent.setAge(22);
+    lawStudent.setIdNumber(67890);
+    lawStudent.setCourse("Law");
+    lawStudent.display();
+
+    BusinessStudent businessStudent;
+    businessStudent.setName("issa juma");
+    businessStudent.setAge(25);
+    businessStudent.setIdNumber(24680);
+    businessStudent.setCourse("Business");
+    businessStudent.display();
+
+    BSCITStudent bscitStudent;
+    bscitStudent.setName("David bray");
+    bscitStudent.setAge(21);
+    bscitStudent.setIdNumber(13579);
+    bscitStudent.setCourse("BSC-IT");
+    bscitStudent.setStage("Stage 2");
+    bscitStudent.display();
+
+   return 0;
+}
+    
